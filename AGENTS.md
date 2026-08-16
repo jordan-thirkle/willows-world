@@ -10,7 +10,7 @@ The founding input is a real child reading performance. AI assists production in
 
 Canonical Willow continuity: **brown hair, blue eyes, purple glasses**.
 
-Before planning or writing, read `README.md`, `docs/PRODUCT.md`, and the active GitHub issue. If the requested work conflicts with those sources, stop implementation and reconcile the conflict first.
+Before planning or writing, read `README.md`, `docs/PRODUCT.md`, the active GitHub issue, and **`docs/HANDBOOK.md` whenever the task affects product direction, architecture, art/character continuity, delivery workflow, roadmap, publishing, or contributor handoff**. If requested work conflicts with those sources, reconcile the conflict before implementation.
 
 ## Project-boundary check
 
