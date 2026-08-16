@@ -10,13 +10,19 @@ The founding input is a real child reading performance. AI assists production in
 
 Canonical Willow continuity: **brown hair, blue eyes, purple glasses**.
 
-Before planning or writing, read `README.md`, `docs/PRODUCT.md`, the active GitHub issue, and **`docs/HANDBOOK.md` whenever the task affects product direction, architecture, art/character continuity, delivery workflow, roadmap, publishing, or contributor handoff**. If requested work conflicts with those sources, reconcile the conflict before implementation.
+Before planning or writing, read `README.md`, `docs/PRODUCT.md`, the active GitHub issue, and **`docs/HANDBOOK.md` whenever the task affects product direction, architecture, art/character continuity, delivery workflow, roadmap, publishing, or contributor handoff**. Read **`docs/PLATFORM-ARCHITECTURE.md` for changes involving domain data, persistence, media, AI providers, Expo/native, web, rendering, public publishing, privacy, or cross-platform boundaries**. If requested work conflicts with those sources, reconcile the conflict before implementation.
 
 ## Project-boundary check
 
 Classify every proposed feature against the north star before adding it. Work belongs here when it directly improves the reading/learning/creative world, the transformation pipeline, Story Woods, shared episode outputs, parent-controlled production, or the later Willow's World destinations explicitly defined by this repository.
 
 Concepts from other projects must arrive through an explicit product decision recorded in this repository before implementation. Similar subject matter, family context, names, or prior conversations are not sufficient evidence that a feature belongs here.
+
+## Durable-data rule
+
+**Source performances are durable; generated interpretations are replaceable.** Preserve original recordings and parent-approved corrections as canonical source material. Treat transcripts, timings, generated art, animation, captions and renders as versioned derivatives. Keep product/domain data independent of a particular UI, AI provider, storage vendor or renderer.
+
+Private child recordings and secrets never belong in Git. Publishing is parent-controlled and off by default; a public episode must derive from an explicit approved publication record rather than exposing private family state.
 
 ## Current focus
 
