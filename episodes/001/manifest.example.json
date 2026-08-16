@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "episodeId": "001",
+  "title": "Episode 001",
+  "source": {
+    "assetId": null,
+    "sha256": null,
+    "durationMs": null,
+    "privacy": "private",
+    "provenance": "observed"
+  },
+  "transcript": {
+    "version": 0,
+    "status": "pending",
+    "segments": []
+  },
+  "parentApproval": {
+    "transcript": false,
+    "art": false,
+    "interactivePreview": false,
+    "renders": false,
+    "publication": false
+  },
+  "art": {
+    "characterPackVersion": null,
+    "worldPackVersion": null
+  },
+  "events": [],
+  "renders": {
+    "landscape": { "width": 1920, "height": 1080, "status": "pending" },
+    "vertical": { "width": 1080, "height": 1920, "status": "pending" }
+  },
+  "rights": {
+    "technicalProductionReady": false,
+    "publicationStatus": "review-required"
+  }
+}
