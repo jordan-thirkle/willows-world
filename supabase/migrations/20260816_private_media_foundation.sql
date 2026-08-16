@@ -16,6 +16,9 @@ create table if not exists public.willows_world_media_assets (
   unique (storage_bucket, storage_path)
 );
 
+create index if not exists willows_world_media_assets_owner_id_idx
+on public.willows_world_media_assets(owner_id);
+
 alter table public.willows_world_media_assets enable row level security;
 
 create policy "willows_world_media_assets_owner_select"
