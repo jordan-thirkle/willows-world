@@ -3,9 +3,9 @@ import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { validateStoryPerformance } from '../src/domain/story-performance.mjs';
 
-const fixture = JSON.parse(await readFile(new URL('../episodes/001/performance.draft.json', import.meta.url), 'utf8'));
+const fixture = JSON.parse(await readFile(new URL('../episodes/001/performance.preview.json', import.meta.url), 'utf8'));
 
-test('Episode 001 draft satisfies the StoryPerformance contract', () => {
+test('Episode 001 safe preview satisfies the StoryPerformance contract', () => {
   assert.deepEqual(validateStoryPerformance(fixture), []);
 });
 
