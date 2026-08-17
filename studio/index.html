@@ -4,44 +4,51 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="robots" content="noindex,nofollow,noarchive">
-  <meta name="theme-color" content="#1b3028">
+  <meta name="theme-color" content="#13271f">
   <title>Parent Studio — Willow's World</title>
-  <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="/studio/studio.css">
 </head>
 <body>
 <main class="studio-shell">
-  <header class="studio-header">
-    <p class="kicker">WILLOW'S WORLD · PRIVATE PARENT STUDIO</p>
-    <h1>Parent Studio</h1>
-    <p>This surface is for authenticated parent-only work. It does not expose Willow's private media or silently create accounts.</p>
+  <header class="studio-topbar">
+    <a class="brand" href="/" aria-label="Willow's World home"><span class="brand-mark">W</span><span>Willow's World<small>Parent Studio</small></span></a>
+    <div class="session"><span class="session-dot" aria-hidden="true"></span><span id="session-label">Checking private access…</span><button id="sign-out" type="button" hidden>Sign out</button></div>
   </header>
 
-  <section class="studio-card" aria-labelledby="auth-heading">
-    <p class="label">PRIVATE ACCESS</p>
-    <h2 id="auth-heading">Sign in as an approved parent</h2>
-    <p id="auth-status" class="studio-status" aria-live="polite">Checking session…</p>
-
-    <form id="magic-link-form" class="studio-form" hidden>
-      <label for="parent-email">Approved parent email</label>
-      <input id="parent-email" name="email" type="email" autocomplete="email" required>
-      <button class="primary" type="submit">Send private sign-in link</button>
-      <p class="studio-note">For privacy, the response does not reveal whether an address is enrolled.</p>
-    </form>
-
-    <div id="signed-in-actions" hidden>
-      <p class="studio-note">Authenticated parent session verified. Private ingestion remains disabled until the upload boundary is implemented and verified.</p>
-      <button class="reset" id="sign-out" type="button">Sign out</button>
+  <section id="auth-gate" class="auth-gate" aria-labelledby="auth-heading">
+    <div>
+      <p class="eyebrow">PRIVATE · PARENT ONLY</p>
+      <h1 id="auth-heading">The quiet place behind<br>Willow's World.</h1>
+      <p class="lede">Prepare stories, recordings and memories away from the public experience. Private media stays private unless you deliberately publish something later.</p>
     </div>
+    <form id="magic-link-form" class="auth-form" hidden>
+      <label for="parent-email">Approved parent email</label>
+      <div class="input-row"><input id="parent-email" name="email" type="email" autocomplete="email" required placeholder="you@example.com"><button type="submit">Send sign-in link</button></div>
+      <p id="auth-status" class="status" aria-live="polite">Checking session…</p>
+      <p class="privacy-note">For privacy, we never reveal whether an address is enrolled.</p>
+    </form>
   </section>
 
-  <section class="studio-card" aria-labelledby="ingest-heading">
-    <p class="label">EPISODE 001 · INGESTION GATE</p>
-    <h2 id="ingest-heading">Private media stays fail-closed</h2>
-    <p>The real recording is not served by the public Story Woods preview. Upload controls will only appear after an authenticated owner-scoped Storage path, integrity verification, and media-asset persistence are wired end to end.</p>
-  </section>
+  <section id="workspace" class="workspace" hidden>
+    <div class="welcome">
+      <p class="eyebrow">GOOD EVENING</p>
+      <h1>What shall we keep<br>from today?</h1>
+      <p>Willow's World grows from the things worth remembering—not from filling in forms.</p>
+    </div>
 
-  <p><a href="/">← Back to Story Woods</a></p>
+    <div class="action-grid" aria-label="Parent Studio actions">
+      <article class="action-card featured"><span class="card-icon">♪</span><div><p class="eyebrow">EPISODE 001</p><h2>Add tonight's reading</h2><p>Bring in the real recording when the verified private upload boundary is ready.</p></div><span class="state-pill">Upload locked safely</span></article>
+      <article class="action-card"><span class="card-icon">✎</span><div><p class="eyebrow">STORY NOTE</p><h2>Remember something</h2><p>Capture context, funny lines and little details that a recording alone cannot know.</p></div><span class="coming">Coming next →</span></article>
+      <article class="action-card"><span class="card-icon">☾</span><div><p class="eyebrow">TONIGHT</p><h2>Prepare Story Woods</h2><p>Review what Willow will see and hear without exposing private source media.</p></div><a href="/">Open Story Woods →</a></article>
+    </div>
+
+    <section class="episode-panel">
+      <div class="episode-art" aria-hidden="true"><span>☾</span><i>✦</i><b>♧</b></div>
+      <div class="episode-copy"><p class="eyebrow">CURRENT STORY · EPISODE 001</p><h2>The first reading</h2><p>The public Story Woods experience is live as a safe preview. The original family recording remains behind the private ingestion gate until owner-scoped storage, persistence and integrity verification are complete.</p><div class="checks"><span>✓ Parent session verified</span><span>✓ Public preview separated</span><span>○ Verified private upload</span></div></div>
+    </section>
+
+    <footer class="studio-footer"><span>Willow's World · A private family project</span><span>Private by default · No public media here</span></footer>
+  </section>
 </main>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script type="module" src="/studio/studio.js"></script>
