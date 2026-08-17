@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "performanceId": "episode-001-story-woods-preview",
+  "revisionId": "episode-001-story-woods-preview-r1",
+  "episodeId": "001",
+  "status": "draft",
+  "provenance": "authored-safe-fixture",
+  "source": {
+    "sha256": "23f76bab3177e7c6b95ebde19962bb81a9ab0f6b38f80c2dc9d7cd3f68140b13",
+    "durationMs": 4000,
+    "syntheticSourceText": "moon seed glow home"
+  },
+  "language": "en-GB",
+  "words": [
+    {"id":"preview-w001","text":"moon","startMs":0,"endMs":900,"confidence":1,"provenance":"authored"},
+    {"id":"preview-w002","text":"seed","startMs":1000,"endMs":1900,"confidence":1,"provenance":"authored"},
+    {"id":"preview-w003","text":"glow","startMs":2000,"endMs":2900,"confidence":1,"provenance":"authored"},
+    {"id":"preview-w004","text":"home","startMs":3000,"endMs":3900,"confidence":1,"provenance":"authored"}
+  ],
+  "review": {
+    "checkedAgainstOriginalAudio": false,
+    "parentCorrected": false,
+    "parentApproved": false,
+    "wordLevelTimingComplete": true,
+    "note": "Publication-safe synthetic fixture for proving the Story Woods adapter. It contains no private recording, child transcript, copyrighted story text, or media URL and must never be represented as Willow's real performance."
+  }
+}
