@@ -1,0 +1,28 @@
+{
+  "scenePlan": {
+    "schemaVersion": 1,
+    "scenePlanId": "episode-001-story-woods-scenes",
+    "revisionId": "episode-001-story-woods-scenes-r1",
+    "performanceRevisionId": "episode-001-story-woods-preview-r1",
+    "status": "draft",
+    "scenes": [
+      {"id":"scene-moon","startMs":0,"endMs":900,"cueWordId":"preview-w001"},
+      {"id":"scene-seed","startMs":1000,"endMs":1900,"cueWordId":"preview-w002"},
+      {"id":"scene-glow","startMs":2000,"endMs":2900,"cueWordId":"preview-w003"},
+      {"id":"scene-home","startMs":3000,"endMs":3900,"cueWordId":"preview-w004"}
+    ]
+  },
+  "learningEvents": [
+    {"schemaVersion":1,"eventId":"learn-preview-moon","performanceRevisionId":"episode-001-story-woods-preview-r1","wordId":"preview-w001","kind":"word-discovered","provenance":"synthetic-preview"}
+  ],
+  "publicationApproval": {
+    "schemaVersion": 1,
+    "approvalId": "episode-001-preview-publication-r1",
+    "performanceRevisionId": "episode-001-story-woods-preview-r1",
+    "scenePlanRevisionId": "episode-001-story-woods-scenes-r1",
+    "rightsState": "private-development-only",
+    "approved": false,
+    "approvedBy": null,
+    "approvedAt": null
+  }
+}
