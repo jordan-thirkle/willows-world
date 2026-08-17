@@ -6,8 +6,9 @@
   "status": "draft",
   "provenance": "authored-safe-fixture",
   "source": {
-    "sha256": "preview-fixture-no-private-media",
-    "durationMs": 4000
+    "sha256": "23f76bab3177e7c6b95ebde19962bb81a9ab0f6b38f80c2dc9d7cd3f68140b13",
+    "durationMs": 4000,
+    "syntheticSourceText": "moon seed glow home"
   },
   "language": "en-GB",
   "words": [
