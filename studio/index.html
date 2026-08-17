@@ -16,37 +16,20 @@
   </header>
 
   <section id="auth-gate" class="auth-gate" aria-labelledby="auth-heading">
-    <div>
-      <p class="eyebrow">PRIVATE · PARENT ONLY</p>
-      <h1 id="auth-heading">The quiet place behind<br>Willow's World.</h1>
-      <p class="lede">Prepare stories, recordings and memories away from the public experience. Private media stays private unless you deliberately publish something later.</p>
-    </div>
-    <form id="magic-link-form" class="auth-form" hidden>
-      <label for="parent-email">Approved parent email</label>
-      <div class="input-row"><input id="parent-email" name="email" type="email" autocomplete="email" required placeholder="you@example.com"><button type="submit">Send sign-in link</button></div>
-      <p id="auth-status" class="status" aria-live="polite">Checking session…</p>
-      <p class="privacy-note">For privacy, we never reveal whether an address is enrolled.</p>
-    </form>
+    <div><p class="eyebrow">PRIVATE · PARENT ONLY</p><h1 id="auth-heading">The quiet place behind<br>Willow's World.</h1><p class="lede">Prepare stories, recordings and memories away from the public experience. Private media stays private unless you deliberately publish something later.</p></div>
+    <form id="magic-link-form" class="auth-form" hidden><label for="parent-email">Approved parent email</label><div class="input-row"><input id="parent-email" name="email" type="email" autocomplete="email" required placeholder="you@example.com"><button type="submit">Send sign-in link</button></div><p id="auth-status" class="status" aria-live="polite">Checking session…</p><p class="privacy-note">For privacy, we never reveal whether an address is enrolled.</p></form>
   </section>
 
   <section id="workspace" class="workspace" hidden>
-    <div class="welcome">
-      <p class="eyebrow">GOOD EVENING</p>
-      <h1>What shall we keep<br>from today?</h1>
-      <p>Willow's World grows from the things worth remembering—not from filling in forms.</p>
-    </div>
+    <div class="welcome"><p class="eyebrow">GOOD EVENING</p><h1>What shall we keep<br>from today?</h1><p>Willow's World grows from the things worth remembering—not from filling in forms.</p></div>
 
     <div class="action-grid" aria-label="Parent Studio actions">
-      <article class="action-card featured"><span class="card-icon">♪</span><div><p class="eyebrow">EPISODE 001</p><h2>Add tonight's reading</h2><p>Bring in the real recording when the verified private upload boundary is ready.</p></div><span class="state-pill">Upload locked safely</span></article>
-      <article class="action-card"><span class="card-icon">✎</span><div><p class="eyebrow">STORY NOTE</p><h2>Remember something</h2><p>Capture context, funny lines and little details that a recording alone cannot know.</p></div><span class="coming">Coming next →</span></article>
+      <article class="action-card featured"><span class="card-icon">♪</span><div><p class="eyebrow">EPISODE 001</p><h2>Add the first reading</h2><p>Choose the original recording. It is uploaded only to your authenticated private archive path and recorded with an integrity hash.</p></div><form id="episode-upload-form"><label for="episode-file" class="coming">Choose private recording</label><input id="episode-file" name="episode-file" type="file" accept="audio/*,video/mp4,video/quicktime,video/webm" required><button id="episode-upload" type="submit">Archive Episode 001</button><p id="upload-status" class="status" aria-live="polite">Nothing leaves this device until you choose a file and press Archive.</p><progress id="hash-progress" hidden></progress></form></article>
+      <article class="action-card"><span class="card-icon">✎</span><div><p class="eyebrow">STORY NOTE</p><h2>Remember something</h2><p>Capture context, funny lines and little details that a recording alone cannot know.</p></div><span class="coming">Next vertical slice →</span></article>
       <article class="action-card"><span class="card-icon">☾</span><div><p class="eyebrow">TONIGHT</p><h2>Prepare Story Woods</h2><p>Review what Willow will see and hear without exposing private source media.</p></div><a href="/">Open Story Woods →</a></article>
     </div>
 
-    <section class="episode-panel">
-      <div class="episode-art" aria-hidden="true"><span>☾</span><i>✦</i><b>♧</b></div>
-      <div class="episode-copy"><p class="eyebrow">CURRENT STORY · EPISODE 001</p><h2>The first reading</h2><p>The public Story Woods experience is live as a safe preview. The original family recording remains behind the private ingestion gate until owner-scoped storage, persistence and integrity verification are complete.</p><div class="checks"><span>✓ Parent session verified</span><span>✓ Public preview separated</span><span>○ Verified private upload</span></div></div>
-    </section>
-
+    <section class="episode-panel"><div class="episode-art" aria-hidden="true"><span>☾</span><i>✦</i><b>♧</b></div><div class="episode-copy"><p class="eyebrow">CURRENT STORY · EPISODE 001</p><h2>The first reading</h2><p id="episode-state-copy">The public Story Woods experience stays separate. The original recording is archived privately and is never exposed through a public object URL.</p><div class="checks"><span>✓ Parent session verified</span><span>✓ Public preview separated</span><span id="upload-check">○ Verified private upload</span><span id="integrity-check">○ SHA-256 integrity recorded</span></div></div></section>
     <footer class="studio-footer"><span>Willow's World · A private family project</span><span>Private by default · No public media here</span></footer>
   </section>
 </main>
