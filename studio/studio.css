@@ -1,0 +1,36 @@
+.studio-shell {
+  width: min(760px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 56px 0 80px;
+}
+
+.studio-header { margin-bottom: 32px; }
+.studio-header h1 { margin: 8px 0 12px; }
+.studio-header p { max-width: 62ch; }
+
+.studio-card {
+  border: 1px solid rgba(27, 48, 40, .16);
+  border-radius: 24px;
+  padding: clamp(22px, 5vw, 36px);
+  margin: 18px 0;
+  background: rgba(255, 255, 255, .58);
+  box-shadow: 0 18px 60px rgba(27, 48, 40, .08);
+}
+
+.studio-card h2 { margin: 8px 0 12px; }
+.studio-status { font-weight: 700; }
+.studio-form { display: grid; gap: 12px; margin-top: 20px; }
+.studio-form label { font-weight: 700; }
+.studio-form input {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid rgba(27, 48, 40, .3);
+  border-radius: 14px;
+  padding: 14px 16px;
+  font: inherit;
+  background: #fff;
+  color: #1b3028;
+}
+.studio-form input:focus { outline: 3px solid rgba(79, 114, 91, .24); outline-offset: 2px; }
+.studio-note { font-size: .9rem; opacity: .78; }
+button:disabled { opacity: .55; cursor: wait; }
