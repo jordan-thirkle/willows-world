@@ -10,30 +10,33 @@ Last reconciled: 2026-08-17
 
 **Record → Transform → Watch / Play → Share**
 
-## What is established
+## Verified foundation now on `main`
 
-- Product north star and P0 definition exist.
-- Durable architecture direction exists: shared domain records, Expo family client, public/discoverable web, Remotion renderer, private object media storage and relational structured state.
-- The public-launch operating model and professional hierarchy are approved.
-- Stage gates P0–P3 are explicit.
-- Episode 001 is the proving performance; a new recording is not required to continue engineering.
-- Private child media must remain outside GitHub.
+- Versioned `StoryPerformance`, `ScenePlan`, `LearningEvent` and `PublicationApproval` contracts exist with zero-dependency tests.
+- A publication-safe synthetic Episode 001 fixture proves the public adapter/domain path without exposing private child transcript/audio/source identifiers.
+- The current public tree no longer contains the previously exposed real Episode 001 source filename/fingerprints.
+- A shared deterministic timeline projects active word, active scene, duration, progress and end state from one performance + scene-plan revision pair.
+- Story Woods now consumes that shared timeline rather than maintaining an independent page-specific cue sequence; local preview progress is invalidated when either canonical revision changes.
+- Supabase private media infrastructure is live: the `willows-world-private` bucket is non-public, structured media rows use owner-scoped RLS, and Storage policies require both `storage.objects.owner_id` and the owner UUID path prefix to match the authenticated user.
+- Supabase security advisors reported zero lints after the ownership hardening migration.
+- GitHub CI passes on current `main` and the Git-backed Vercel production deployment is `READY`; recent runtime-error inspection found no errors.
 
-## What is not yet proven
+## P0 gates that remain open
 
-Do not infer completion from documentation or mock UI. The repository still needs runtime evidence for the complete Episode 001 pipeline, deterministic playback, persistence, parent approval, dual-format rendering, native clients, durable private storage and public/store launch readiness.
+1. **Public Git history privacy (#50).** Current-tree remediation is complete, and all currently named branch refs have been advanced to the safe `main` head so stale feature branches no longer pin the known sensitive commits. Historical commits are still directly addressable in GitHub and therefore #50 is **not closed**. Final remediation needs a history rewrite/repository replacement or GitHub-side cached-object removal, followed by independent verification.
+2. **Authenticated parent boundary (#54 → #11).** Database/Storage policy foundations are hardened, but the product still needs a real authenticated parent session and client upload path before private Episode 001 can be ingested. Never substitute a service-role credential or weakened RLS.
+3. **Real parent-reviewed performance (#12).** Public contracts/fixtures are proof only. The real private transcript/word timing remains unapproved until checked against the private recording and explicitly parent-approved.
+4. **Canonical visual reference (#52 → #13).** Descriptive continuity exists, but production likeness-dependent art requires an approved reference/direction first.
+5. **Real one-performance output proof (#14).** Interactive Story Woods now uses the shared timeline foundation, but real voice synchronization and actual 1920×1080 / 1080×1920 renders remain pending.
+6. **Real publication acceptance (#15).** The fail-closed rights/approval contract exists; no real Episode 001 export/publication is approved.
+7. **Final deployment/device QA (#24).** Deployment infrastructure is healthy, but final visual/mobile/native acceptance remains later in the chain.
 
-## Immediate implementation target
+## Current execution order
 
-Begin with the smallest P0 vertical slice:
+`#50 → #54 → #11 → #12 → #52 → #13 → #14 → #15 → #24`
 
-1. establish versioned canonical `StoryPerformance`, `ScenePlan`, `LearningEvent` and `PublicationApproval` contracts;
-2. create a repository-safe Episode 001 fixture with opaque/redacted private media references;
-3. make the existing Story Woods slice consume that canonical record through one adapter;
-4. add deterministic tests before expanding infrastructure.
-
-This work is deliberately ahead of database/provider selection: prove the domain and player boundary before choosing infrastructure around speculative CRUD.
+Safe preparatory work may advance a later gate only when it does not fabricate human approval, expose private child material, weaken security, or distract from the earliest unresolved dependency.
 
 ## Stop/continue rule
 
-After completing a slice, verify it, record evidence, merge it safely, then select the highest-value unresolved item in the earliest incomplete gate. Do not wait merely because one slice completed if further safe work can proceed.
+After every slice: verify with fresh evidence, record the result in GitHub, merge only bounded changes, confirm production/deployment health when relevant, then continue to the highest-value unresolved work that can be completed safely without a human-only decision.
