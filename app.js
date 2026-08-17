@@ -1,4 +1,4 @@
-import { loadStoryWoodsPreview } from './src/story-woods/performance-adapter.mjs';
+import { loadStoryWoodsTimeline } from './src/story-woods/timeline-adapter.mjs';
 
 const STORAGE_KEY = 'willows-world:preview-001';
 const world = document.querySelector('.world');
@@ -8,16 +8,17 @@ const status = document.querySelector('#status');
 const label = document.querySelector('.button-label');
 const words = [...document.querySelectorAll('[data-word]')];
 
-let states = [];
-let revisionId = null;
+let timeline = null;
+let cueFrames = [];
+let revisionKey = null;
 let progress = { step: 0, learned: [] };
 
 function readProgress() {
   try {
     const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
-    if (saved.revisionId !== revisionId) return { step: 0, learned: [] };
+    if (saved.revisionKey !== revisionKey) return { step: 0, learned: [] };
     return {
-      step: Math.min(Number(saved.step) || 0, states.length),
+      step: Math.min(Number(saved.step) || 0, cueFrames.length),
       learned: Array.isArray(saved.learned) ? saved.learned : []
     };
   } catch {
@@ -31,25 +32,25 @@ function render() {
   if (progress.step === 0) {
     status.textContent = 'Ready to enter Story Woods.';
     label.textContent = 'Begin the story';
-  } else if (progress.step >= states.length) {
-    status.textContent = states.at(-1).message;
+  } else if (progress.step >= cueFrames.length) {
+    status.textContent = cueFrames.at(-1).activeCue.message;
     label.textContent = 'Visit Story Woods again';
   } else {
-    status.textContent = states[progress.step - 1].message;
+    status.textContent = cueFrames[progress.step - 1].activeCue.message;
     label.textContent = 'Continue the story';
   }
 }
 
 function save() {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify({ ...progress, revisionId }));
+  localStorage.setItem(STORAGE_KEY, JSON.stringify({ ...progress, revisionKey }));
 }
 
 begin.addEventListener('click', () => {
-  if (!states.length) return;
-  if (progress.step >= states.length) progress = { step: 0, learned: [] };
-  const state = states[progress.step];
+  if (!timeline || !cueFrames.length) return;
+  if (progress.step >= cueFrames.length) progress = { step: 0, learned: [] };
+  const frame = cueFrames[progress.step];
   progress.step += 1;
-  if (!progress.learned.includes(state.word)) progress.learned.push(state.word);
+  if (!progress.learned.includes(frame.activeCue.word)) progress.learned.push(frame.activeCue.word);
   save();
   render();
 });
@@ -65,14 +66,18 @@ async function initialise() {
   begin.disabled = true;
   status.textContent = 'Preparing Story Woods…';
   try {
-    const loaded = await loadStoryWoodsPreview();
-    states = loaded.states;
-    revisionId = loaded.performance.revisionId;
+    const loaded = await loadStoryWoodsTimeline();
+    timeline = loaded.timeline;
+    revisionKey = `${timeline.performanceRevisionId}:${timeline.scenePlanRevisionId}`;
+    cueFrames = loaded.performance.words
+      .map((word) => timeline.frameAt(word.startMs))
+      .filter((frame) => frame.activeCue);
+    if (!cueFrames.length) throw new Error('Story timeline contains no Story Woods cues');
     progress = readProgress();
     begin.disabled = false;
     render();
   } catch (error) {
-    console.error('Story Woods performance failed to load', error);
+    console.error('Story Woods timeline failed to load', error);
     label.textContent = 'Story unavailable';
     status.textContent = 'Story Woods could not be prepared safely. Please try again later.';
   }
