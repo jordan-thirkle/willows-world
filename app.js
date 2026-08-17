@@ -1,3 +1,5 @@
+import { loadStoryWoodsPreview } from './src/story-woods/performance-adapter.mjs';
+
 const STORAGE_KEY = 'willows-world:preview-001';
 const world = document.querySelector('.world');
 const begin = document.querySelector('#begin');
@@ -6,23 +8,22 @@ const status = document.querySelector('#status');
 const label = document.querySelector('.button-label');
 const words = [...document.querySelectorAll('[data-word]')];
 
-const states = [
-  { message: 'Moonlight reaches deeper into the woods.', word: 'moon' },
-  { message: 'A tiny seed takes root beside Willow.', word: 'seed' },
-  { message: 'Fireflies wake and Story Woods begins to glow.', word: 'glow' },
-  { message: 'The path home appears. Story Woods remembers what Willow learned.', word: 'home' }
-];
+let states = [];
+let revisionId = null;
+let progress = { step: 0, learned: [] };
 
 function readProgress() {
   try {
     const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
-    return { step: Math.min(Number(saved.step) || 0, states.length), learned: Array.isArray(saved.learned) ? saved.learned : [] };
+    if (saved.revisionId !== revisionId) return { step: 0, learned: [] };
+    return {
+      step: Math.min(Number(saved.step) || 0, states.length),
+      learned: Array.isArray(saved.learned) ? saved.learned : []
+    };
   } catch {
     return { step: 0, learned: [] };
   }
 }
-
-let progress = readProgress();
 
 function render() {
   world.dataset.worldStep = String(progress.step);
@@ -40,10 +41,11 @@ function render() {
 }
 
 function save() {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
+  localStorage.setItem(STORAGE_KEY, JSON.stringify({ ...progress, revisionId }));
 }
 
 begin.addEventListener('click', () => {
+  if (!states.length) return;
   if (progress.step >= states.length) progress = { step: 0, learned: [] };
   const state = states[progress.step];
   progress.step += 1;
@@ -59,4 +61,21 @@ reset.addEventListener('click', () => {
   status.textContent = 'Preview reset. Story Woods is ready again.';
 });
 
-render();
+async function initialise() {
+  begin.disabled = true;
+  status.textContent = 'Preparing Story Woods…';
+  try {
+    const loaded = await loadStoryWoodsPreview();
+    states = loaded.states;
+    revisionId = loaded.performance.revisionId;
+    progress = readProgress();
+    begin.disabled = false;
+    render();
+  } catch (error) {
+    console.error('Story Woods performance failed to load', error);
+    label.textContent = 'Story unavailable';
+    status.textContent = 'Story Woods could not be prepared safely. Please try again later.';
+  }
+}
+
+initialise();
