@@ -1,31 +1,29 @@
 {
   "schemaVersion": 1,
   "episodeId": "001",
+  "fixturePolicy": "public-synthetic-only",
   "source": {
-    "originalFilename": "Gruffalo, Where are you..m4a",
+    "sourceRef": "private-source-withheld",
     "mimeType": "audio/mp4",
-    "sizeBytes": 238698,
-    "durationMs": 27797,
-    "sha256": "3c7425477753dafbed08d056716f23482c6c323733ae95522c6342f4b249e141",
-    "privacy": "private",
-    "provenance": "observed",
-    "repositoryContainsBinary": false,
-    "privateStorageAssetId": null,
-    "privateStoragePath": null
+    "durationMs": 4000,
+    "privacy": "synthetic-public-fixture",
+    "provenance": "synthetic-preview",
+    "repositoryContainsBinary": false
   },
   "cleanedMaster": {
-    "originalFilename": "prototype001_clean.m4a",
-    "sizeBytes": 578694,
-    "durationMs": 27800,
-    "sha256": "c3823dea0f5873f8e8673cc0f29ee80279ec68126f94fb33042fa38a0a196b4a",
-    "privacy": "private",
-    "provenance": "generated",
-    "repositoryContainsBinary": false,
-    "privateStorageAssetId": null,
-    "privateStoragePath": null
+    "sourceRef": "synthetic-cleaned-preview",
+    "durationMs": 4000,
+    "privacy": "synthetic-public-fixture",
+    "provenance": "synthetic-preview",
+    "repositoryContainsBinary": false
+  },
+  "privateEvidence": {
+    "status": "withheld-from-public-repository",
+    "requiredFields": ["originalFilename", "sizeBytes", "durationMs", "sha256", "privateStorageAssetId", "privateStoragePath"],
+    "note": "Real child-media identifiers and fingerprints belong only in authenticated private application/storage state. Public tests must use synthetic fixtures."
   },
   "ingestion": {
     "status": "blocked-on-authenticated-storage-upload",
-    "note": "The exact original and cleaned binaries were recovered from conversation assets and fingerprinted. The connected Supabase surface can manage schema but does not expose Storage object upload or an authenticated end-user session. Do not weaken RLS or expose a service key to bypass this gate."
+    "note": "Do not weaken RLS or expose privileged credentials to bypass the authenticated parent-session gate."
   }
 }
