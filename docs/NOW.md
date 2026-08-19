@@ -17,38 +17,37 @@ The real child's voice is the hero. Parent Studio is backstage. Story Woods and 
 ## Verified on `main`
 
 - canonical product-loop design and one-performance-many-outputs architecture;
+- one-person-studio operating system (`docs/OPERATING-SYSTEM.md`) and fast agent orientation;
 - portable performance/scene/learning/publication domain foundations and tests;
 - safe synthetic public Story Woods proving shared timeline mechanics without exposing the private source;
 - Supabase private-media schema/RLS foundation in repository history;
 - fail-closed Parent Studio auth runtime merged through PR #70;
-- GitHub CI foundation;
-- Vercel Git integration previously proven.
-
-## Important reconciliation fact
-
-The Episode 001 ingest implementation from PR #76 was merged into the intermediate `feat/parent-studio-productisation` branch, **not canonical `main`**. Treat it as implemented-but-not-shipped source material. Re-land the intended files cleanly from latest `main`; do not confuse a successful stacked-branch merge with production delivery.
+- productised authenticated Parent Studio + Episode 001 private ingest merged to canonical `main` through PR #78;
+- Episode 001 ingest computes SHA-256, stores the original in owner-scoped private Storage, persists media metadata, and cleans up the object if metadata persistence fails;
+- Git migration matches the already-applied live 250 MiB / supported-media MIME restrictions;
+- exact-head CI for PR #78 passed before merge;
+- GitHub CI foundation and Vercel Git integration previously proven.
 
 ## NOW
 
-1. Reconcile the proven Parent Studio productisation + Episode 001 ingest changes onto a fresh branch from latest `main`.
-2. Run/review tests and exact diff; merge the bounded result to `main`.
-3. Prove a real authenticated Episode 001 private upload and persistence against live Supabase.
-4. Immediately move to the reviewed performance/timing → Story Woods real-voice vertical slice.
+1. **Prove the real Episode 001 upload end to end against live Supabase using the authenticated parent account.** Verify the Storage object, owner-scoped media row, MIME/size/hash metadata and private access behavior.
+2. Obtain/review the real performance transcript + timing without putting private child source material in public Git.
+3. Drive Story Woods from the reviewed real performance/timeline so Willow hears her actual voice inside the experience.
+4. Add one legitimate age-appropriate phonics/reading interaction only if it naturally follows from the reviewed performance.
 
 ## NEXT
 
-- parent correction/review of transcript and timing;
 - canonical Willow character/art reference and consistent scene production;
-- shared performance-driven Story Woods playback;
-- one age-appropriate phonics/reading interaction tied to the performance;
-- shared 16:9 + 9:16 rendering from the same reviewed data;
-- explicit parent approval/export.
+- parent correction/review UI for transcript/timing and story context;
+- shared 16:9 + 9:16 rendering from the same reviewed performance/scene data;
+- explicit parent preview/approval/export of public derivatives;
+- first family use test: does the ordinary recording feel transformed into something magical and worth replaying?
 
 ## LATER
 
 - Expo iOS/Android convergence and native recording/import;
-- larger resumable media workflow after the first real slice proves requirements;
-- full public SEO/landing/content catalogue;
+- mature resumable upload path for larger/unreliable mobile transfers after the first real slice proves exact needs;
+- full public SEO/landing/content catalogue and organic distribution system;
 - broader learning destinations, accounts, subscriptions, social/community systems;
 - additional worlds/episodes after Episode 001 is genuinely excellent.
 
@@ -59,7 +58,8 @@ The Episode 001 ingest implementation from PR #76 was merged into the intermedia
 - duplicate custom solutions for mature solved systems;
 - giant chat transcripts as implementation briefs;
 - stacked PR chains unless explicitly necessary;
-- creating tickets simply to feel organised.
+- creating tickets simply to feel organised;
+- calling work shipped before it is verified on `main` and, when relevant, production.
 
 ## Definition of today's meaningful progress
 
