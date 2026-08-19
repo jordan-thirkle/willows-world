@@ -4,19 +4,37 @@
 
 This repository is **Willow's World**, the reading-to-media-and-interactive-world product.
 
-North star: **Record → Transform → Watch / Play → Share**.
+North star: **Record → Transform → Watch / Play / Learn → Share → Remember**.
 
-The founding input is a real child reading performance. AI assists production into a consistent illustrated read-along, interactive Story Woods experience, and 16:9 / 9:16 media outputs. The real voice remains the hero.
+The founding input is a real child reading performance. AI assists production into a consistent illustrated read-along, interactive Story Woods experience, age-appropriate early-learning derivatives, and 16:9 / 9:16 media outputs. The real voice remains the hero.
 
 Canonical Willow continuity: **brown hair, blue eyes, purple glasses**.
 
-Before planning or writing, read `README.md`, `docs/PRODUCT.md`, the active GitHub issue, and **`docs/HANDBOOK.md` whenever the task affects product direction, architecture, art/character continuity, delivery workflow, roadmap, publishing, or contributor handoff**. Read **`docs/PLATFORM-ARCHITECTURE.md` for changes involving domain data, persistence, media, AI providers, Expo/native, web, rendering, public publishing, privacy, or cross-platform boundaries**. If requested work conflicts with those sources, reconcile the conflict before implementation.
+## Fast orientation
+
+For every meaningful task, read in this order:
+1. `docs/NOW.md` — the single active objective and current verified state;
+2. this file;
+3. only the product/architecture doc relevant to the task;
+4. the active issue/PR if one exists.
+
+Read `docs/OPERATING-SYSTEM.md` for ChatGPT/Codex/GitHub responsibilities, branch/PR rules, research-first workflow, human-interruption policy and session handoffs.
+
+Read `docs/HANDBOOK.md` when work affects product direction, art/character continuity, delivery workflow, roadmap, publishing or contributor handoff. Read `docs/PLATFORM-ARCHITECTURE.md` for domain data, persistence, media, AI providers, Expo/native, web, rendering, public publishing, privacy or cross-platform boundaries.
+
+Do **not** reread the whole repository or rely on giant chat transcripts when the current objective can be recovered from these durable sources.
 
 ## Project-boundary check
 
-Classify every proposed feature against the north star before adding it. Work belongs here when it directly improves the reading/learning/creative world, the transformation pipeline, Story Woods, shared episode outputs, parent-controlled production, or the later Willow's World destinations explicitly defined by this repository.
+Classify every proposed feature against the north star before adding it. Work belongs here when it directly improves the reading/learning/creative world, the transformation pipeline, Story Woods, shared episode outputs, parent-controlled production, or later Willow's World destinations explicitly defined by this repository.
 
-Concepts from other projects must arrive through an explicit product decision recorded in this repository before implementation. Similar subject matter, family context, names, or prior conversations are not sufficient evidence that a feature belongs here.
+Concepts from other projects require an explicit product decision recorded here before implementation. Similar family subject matter is not enough.
+
+## Best-solved-system-first
+
+Before custom-building a commodity subsystem, check current official docs, mature maintained libraries/services and proven open-source implementations. Prefer thin adaptation over reinvention. Record a reason when custom implementation wins.
+
+Custom effort belongs primarily in Willow's World differentiation: performance-to-world transformation, child experience, learning design, art continuity and the one-performance-many-outputs engine.
 
 ## Durable-data rule
 
@@ -26,10 +44,28 @@ Private child recordings and secrets never belong in Git. Publishing is parent-c
 
 ## Current focus
 
-Until GitHub Issue #1 is complete, prioritize only work that materially advances Episode 001 and **Record → Transform → Watch / Play → Share**. Keep unrelated expansion deferred.
+`docs/NOW.md` owns the one Active Objective. Work outside NOW/NEXT is deferred unless it is a production outage, privacy/security risk, data-loss risk or genuine human-only blocker.
+
+Default effort ratio: **80% product vertical slice / 15% required reliability & safety / 5% process/docs**.
+
+If two consecutive sessions improve infrastructure without making the real Episode 001 experience materially more real, stop and re-prioritise.
+
+## Branch / merge discipline
+
+Default to a fresh branch from latest `main`, one bounded objective, PR back to `main`, exact-head verification, then squash merge.
+
+Stacked PRs are exceptional. **A merge into an intermediate branch is not shipped.** Do not report work as landed until the intended content is verified on `main` (and production when relevant).
+
+Use Codex worktrees for independent parallel repository tasks rather than having multiple agents edit the same files or solve the same blocker.
 
 ## Blockers
 
-When blocked: **detect → reproduce → investigate root cause → identify alternatives → implement the durable fix → verify → document → continue the original goal**.
+When blocked: **detect → reproduce → investigate root cause → search solved alternatives → implement the durable fix → verify → continue the original goal**.
 
-Do not repeatedly retry the same failing path without new evidence. GitHub is canonical; preserve meaningful decisions and fixes in issues, commits, PRs, or durable repository docs.
+Do not repeatedly retry the same failing path without new evidence. Do not turn a temporary tool failure into a product compromise.
+
+## Completion rule
+
+Before declaring success: verify the actual result, confirm it landed on the intended branch/main, clean up stale PRs/issues, update `docs/NOW.md` when state changed, and report what is real, what is not, and the next highest-value action.
+
+GitHub is canonical. Chats are working sessions, not the only home of durable project truth.
